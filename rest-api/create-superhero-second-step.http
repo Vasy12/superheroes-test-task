@@ -1,0 +1,11 @@
+POST http://localhost:5000/api/superheroes/1/superpowers
+Content-Type: application/json
+
+[
+    {
+
+    },
+    {
+
+    }
+]
