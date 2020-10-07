@@ -6,7 +6,12 @@ module.exports = (sequelize, DataTypes) => {
       Superpower.belongsToMany(models.Superhero, {
         through: {
           model: models.SuperheroPowers,
+
           unique: true,
+        },
+        as: {
+          plural: 'superheroes',
+          singular: 'superhero',
         },
       });
     }

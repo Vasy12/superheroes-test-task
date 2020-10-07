@@ -5,17 +5,19 @@ module.exports = (sequelize, DataTypes) => {
 
   SuperheroPowers.init(
     {
-      SuperheroId: {
+      superheroId: {
+        field: 'superhero_id',
         type: DataTypes.INTEGER,
         references: {
-          model: 'Superhero', // 'Movies' would also work
+          model: 'Superhero',
           key: 'id',
         },
       },
-      SuperpowerId: {
+      superpowerId: {
+        field: 'superpower_id',
         type: DataTypes.INTEGER,
         references: {
-          model: 'Superpower', // 'Actors' would also work
+          model: 'Superpower',
           key: 'id',
         },
       },

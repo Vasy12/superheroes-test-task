@@ -8,8 +8,11 @@ module.exports = (sequelize, DataTypes) => {
           model: models.SuperheroPowers,
           unique: true,
         },
+        as: {
+          singular: 'superpower',
+          plural: 'superpowers',
+        },
       });
-      Superhero.hasMany(models.Image);
     }
   }
   Superhero.init(
@@ -34,6 +37,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         unique: true,
         field: 'catch_phrase',
+      },
+      images: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        defaultValue: [],
+        allowNull: false,
       },
     },
     {

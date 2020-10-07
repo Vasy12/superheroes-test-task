@@ -40,10 +40,14 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-/*sequelize.sync().catch(err => {
-  console.error(err);
-  process.exit(1);
-});*/
+/*sequelize
+  .sync({
+    force: true,
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });*/
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

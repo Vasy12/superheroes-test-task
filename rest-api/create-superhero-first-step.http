@@ -1,9 +1,0 @@
-POST http://localhost:5000/api/superheroes
-Content-Type: application/json
-
-{
-    "nickname": "Test",
-    "realName": "Test Testovich",
-    "originDescription": "bla-bla-bla",
-    "catchPhrase": "Hell yeah!"
-}
