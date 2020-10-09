@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const config = require('./config/config');
 const router = require('./router');
 
 // create express app instance
 const app = express();
+// CORS
+app.use(cors());
 // mount json body parser mw
 app.use(express.json());
 

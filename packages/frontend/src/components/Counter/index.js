@@ -1,9 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as counterActionCreators from '../../actions/counterActionCreators';
 
-function Counter(props) {
-  const { value, step, increment, decrement, setStep } = props;
+function Counter() {
+  const { value, step } = useSelector(({ counter }) => counter);
+  const dispatch = useDispatch();
+  const { increment, decrement, setStep } = bindActionCreators(
+    counterActionCreators,
+    dispatch
+  );
 
   return (
     <article>
@@ -21,34 +27,4 @@ function Counter(props) {
   );
 }
 
-Counter.propTypes = {
-  value: PropTypes.number.isRequired,
-  step: PropTypes.number.isRequired,
-  increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
-  setStep: PropTypes.func.isRequired,
-};
-
-function mapStateToProps({ counter }) {
-  return counter;
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    increment: () =>
-      dispatch({
-        type: 'INCREMENT',
-      }),
-    decrement: () =>
-      dispatch({
-        type: 'DECREMENT',
-      }),
-    setStep: v =>
-      dispatch({
-        type: 'SET_STEP',
-        value: v,
-      }),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default Counter;

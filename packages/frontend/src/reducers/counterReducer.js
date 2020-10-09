@@ -1,26 +1,32 @@
+import ACTION_TYPE from './../actions/types';
+
 const initialState = {
   value: 0,
   step: 1,
 };
+
 const counterReducer = (state = initialState, action) => {
   const { type } = action;
   switch (type) {
-    case 'SET_STEP':
+    case ACTION_TYPE.SET_STEP:
       return {
         ...state,
-        step: action.value,
+        step: action.step,
       };
-    case 'INCREMENT':
+    case ACTION_TYPE.INCREMENT: {
       const { value, step } = state;
       return {
         ...state,
         value: value + step,
       };
-    case 'DECREMENT':
+    }
+    case ACTION_TYPE.DECREMENT: {
+      const { value, step } = state;
       return {
         ...state,
-        value: state.value - state.step,
+        value: value - step,
       };
+    }
     default:
       return state;
   }
