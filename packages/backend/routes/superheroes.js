@@ -16,6 +16,12 @@ superheroesRouter
   .patch(SuperheroController.updateById)
   .delete(SuperheroController.deleteById);
 
+// powers
+superheroesRouter.post(
+  '/:heroId/superpowers',
+  SuperheroController.addSuperpower
+);
+
 // images
 superheroesRouter.post(
   '/:heroId/images',
@@ -23,9 +29,4 @@ superheroesRouter.post(
   SuperheroController.addImages
 );
 
-// powers
-superheroesRouter.post(
-  '/:heroId/superpowers',
-  SuperheroController.addSuperpower
-);
 module.exports = superheroesRouter;

@@ -23,5 +23,6 @@ module.exports = async (req, res, next) => {
     req.pagination = pagination;
     return next();
   }
-  next(createHttpError(400));
+  req.pagination = defaultPagination;
+  next();
 };
